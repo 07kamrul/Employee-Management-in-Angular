@@ -1,0 +1,92 @@
+<div class="container">
+    <br>
+    <div class="row justify-content-center">
+        <div class="d-flex">
+            <h3>Add Employee</h3>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-6 ">
+            <form [formGroup]="formValue">
+                <div class="form-group row">
+                  <label for="firstName" class="col-sm-4 col-form-label">First Name</label>
+                  <div class="col-sm-8">
+                    <input type="text" formControlName="firstName" class="form-control" id="firstName" placeholder="Enter your first name...">
+                  </div>
+                </div>
+                <div class="form-group row">
+                    <label for="lastName" class="col-sm-4 col-form-label">Last Name</label>
+                    <div class="col-sm-8">
+                      <input type="text"  formControlName="lastName" class="form-control" id="lastName" placeholder="Enter your last name...">
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="email" class="col-sm-4 col-form-label">Email</label>
+                    <div class="col-sm-8">
+                      <input type="email"  formControlName="email" class="form-control" id="email" placeholder="Enter your email...">
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="mobile" class="col-sm-4 col-form-label">Mobile no.</label>
+                    <div class="col-sm-8">
+                      <input type="number"  formControlName="mobile" class="form-control" id="mobile" placeholder="Enter your mobile no...">
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="salary" class="col-sm-4 col-form-label">Salary</label>
+                    <div class="col-sm-8">
+                      <input type="number"  formControlName="salary" class="form-control" id="salary" placeholder="Enter your salary...">
+                    </div>
+                  </div>
+
+                <fieldset class="form-group">
+                  <div class="row">
+                    <legend class="col-form-label col-sm-4 pt-0">Gender</legend>
+                    <div class="col-sm-8">
+                      <div class="form-check">
+                        <input class="form-check-input" formControlName="male" type="radio" name="gridRadios" id="male" value="male" checked>
+                        <label class="form-check-label" for="male">
+                          Male
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" formControlName="female" type="radio" name="gridRadios" id="female" value="female">
+                        <label class="form-check-label" for="female">
+                            Female
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+                <div class="form-group row">
+                  <div class="col-sm-4"></div>
+                  <div class="col-sm-8">
+                    <div class="form-check">
+                      <input class="form-check-input"  formControlName="remember" type="checkbox" id="remember">
+                      <label class="form-check-label" for="remember">
+                        Remember me
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-4">
+                    <button type="reset" class="btn btn-danger" style="width: 100%;">Reset</button>
+                  </div>
+                  <div class="col-sm-6">
+                    <button type="submit" class="btn btn-success" style="width: 100%;">Submit</button>
+                  </div>
+                </div>
+              </form>
+        </div>
+    </div>
+    
+
+    
+</div>
+
+<div ng-include="'footer.component.html'"></div>
