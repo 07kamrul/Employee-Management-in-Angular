@@ -11,6 +11,9 @@ import { AddEmployeeComponent } from './employee/add-employee/add-employee.compo
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { SliderComponent } from './slider/slider.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -19,16 +22,19 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     FooterComponent,
     EmployeeListComponent,
     AddEmployeeComponent,
-    DashboardComponent
+    DashboardComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ModalModule.forRoot(),
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule,
   ],
-  providers: [],
+  schemas: [NO_ERRORS_SCHEMA],
   bootstrap: [AppComponent]
+  
 })
 export class AppModule { }
