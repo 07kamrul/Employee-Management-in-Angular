@@ -8,12 +8,16 @@ import { FooterComponent } from './footer/footer.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
 import { AddEmployeeComponent } from './employee/add-employee/add-employee.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { SliderComponent } from './slider/slider.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { DataTablesModule } from "angular-datatables";
+import { AmountListComponent } from './amount/amount-list/amount-list.component';
+import { AddAmountComponent } from './amount/add-amount/add-amount.component';
+import { UsersComponent } from './components/users/users.component';
 
 @NgModule({
   declarations: [
@@ -23,8 +27,12 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
     EmployeeListComponent,
     AddEmployeeComponent,
     DashboardComponent,
-    SliderComponent
+    SliderComponent,
+    AmountListComponent,
+    AddAmountComponent,
+    UsersComponent,
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -32,7 +40,12 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule,
+    DataTablesModule,
+    FormsModule,
   ],
+
+  providers: [],
+
   schemas: [NO_ERRORS_SCHEMA],
   bootstrap: [AppComponent]
   
