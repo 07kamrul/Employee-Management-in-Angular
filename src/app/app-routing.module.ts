@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
-import { AddEmployeeComponent } from './employee/add-employee/add-employee.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { AmountListComponent } from './amount/amount-list/amount-list.component';
-import { AddAmountComponent } from './amount/add-amount/add-amount.component';
+import { EmployeeListComponent } from './components/employee-list/employee-list.component'; 
+import { AddEmployeeComponent } from './components/add-employee/add-employee.component'; 
+import { DashboardComponent } from './components/dashboard/dashboard.component'; 
+import { AmountListComponent } from './components/amount-list/amount-list.component';
+import { AddAmountComponent } from './components/add-amount/add-amount.component'; 
 import { UsersComponent } from './components/users/users.component';
 
 const routes: Routes = [
