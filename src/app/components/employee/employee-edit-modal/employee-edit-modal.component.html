@@ -1,1 +1,153 @@
-<p>employee-edit-modal works!</p>
+<div class="container-fluid">
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <form action="" data-form-title="Form Name" [formGroup]="employeeForm">
+        <div class="section custom-card mt-2">
+
+          <div class="modal-header">
+            <h5>Edit Employee Information</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
+              <span aria-hidden="true" >&times;</span>
+            </button>
+          </div>
+
+          <div class="p-2">
+            <div class="row ">
+
+              <!--Left column-->
+              <div class="col-lg-12 col-md-12 col-sm-12 no-gutters">
+                <!--Employee Id-->
+                <div data-for="employeeId" class="col-lg-12 col-md-12 col-sm-12 form-group mb-2 row">
+                  <label class="col-4">Employee Id</label>
+                  <div class="col-8">
+                    <input type="text"
+
+                           name="employeeId"
+                           placeholder="Employee Id"
+                           formControlName="employeeId"
+                           class="form-control">
+
+                    <small *ngIf="" class="text-danger">
+                      validation
+                    </small>
+                  </div>
+                </div>
+
+                <!--Employee Name-->
+                <div data-for="employeeName" class="col-lg-12 col-md-12 col-sm-12 form-group mb-2 row">
+                  <label class="col-4">Employee Name</label>
+                  <div class="col-8">
+                    <input type="text"
+                           name="employeeName"
+
+                           placeholder="Employee Name"
+                           formControlName="employeeName"
+                           class="form-control">
+
+                    <small *ngIf="" class="text-danger">
+                      validation
+                    </small>
+                  </div>
+                </div>
+
+                <!--Employee Designation-->
+                <div data-for="employeeDesignation" class="col-lg-12 col-md-12 col-sm-12 form-group mb-2 row">
+                  <label class="col-4">Username</label>
+                  <div class="col-8">
+                    <input type="text"
+
+                           name="employeeUsername"
+                           placeholder="Employee Username"
+                           formControlName="employeeUsername"
+                           class="form-control">
+
+                    <small *ngIf="" class="text-danger">
+                      validation
+                    </small>
+                  </div>
+                </div>
+
+
+
+                <!--Employee Phone-->
+                <div data-for="employeePhone" class="col-lg-12 col-md-12 col-sm-12 form-group mb-2 row">
+                  <label class="col-4">Phone/Mobile</label>
+                  <div class="col-8">
+                    <input type="text"
+
+                           name="employeeMobile"
+                           placeholder="Employee Phone"
+                           formControlName="employeeMobile"
+                           class="form-control">
+
+                    <small *ngIf="" class="text-danger">
+                      validation
+                    </small>
+                  </div>
+                </div>
+
+                <!--Employee Email-->
+                <div data-for="employeeEmail" class="col-lg-12 col-md-12 col-sm-12 form-group mb-2 row">
+                  <label class="col-4">Email</label>
+                  <div class="col-8">
+                    <input type="text"
+
+                           name="employeeEmail"
+                           placeholder="Employee Email"
+                           formControlName="employeeEmail"
+                           class="form-control">
+
+                    <small *ngIf="" class="text-danger">
+                      validation
+                    </small>
+                  </div>
+                </div>
+
+                  <!--Employee Address-->
+
+                  <div data-for="employeeAddress" class="col-lg-12 col-md-12 col-sm-12 form-group mb-2 row">
+                      <label class="col-4">Address</label>
+                      <div class="col-8">
+                        <textarea class="form-control"
+                        name="employeeAddress"
+                        placeholder="Employee Address"
+                        formControlName="employeeAddress"></textarea>
+
+                        <small *ngIf="" class="text-danger">
+                          validation
+                        </small>
+                      </div>
+                    </div>
+
+                    <!--Employee Company-->
+
+                  <div data-for="employeeCompany" class="col-lg-12 col-md-12 col-sm-12 form-group mb-2 row">
+                    <label class="col-4">Company</label>
+                    <div class="col-8">
+                      <textarea class="form-control"
+                      name="employeeCompany"
+                      placeholder="Employee Company"
+                      formControlName="employeeCompany"></textarea>
+
+                      <small *ngIf="" class="text-danger">
+                        validation
+                      </small>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+      </form>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="col-auto">
+    <button type="button" (click)="closeModal()" class="btn btn-primary mb-4 d-flex justify-content-md-center float-left">Close</button>
+    <button type="button" (click)="closeModal()" class="btn btn-success mb-4 d-flex justify-content-md-center float-right">Submit</button>
+  </div>
+</div>
+

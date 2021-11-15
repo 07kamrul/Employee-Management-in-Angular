@@ -29,8 +29,10 @@
                         <td>
                           <button class="btn btn-success mx-2" value="View"
                           *ngIf="user"  (click)="viewEmployee(user)">VIEW</button>
-                          <button class="btn btn-info mx-2" >EDIT</button>
-                          <button class="btn btn-danger mx-3" data-toggle="modal" data-target="#deleteModal">DELETE</button>
+                          <button class="btn btn-info mx-2" value="Edit"
+                          *ngIf="user"  (click)="editEmployee(user)">EDIT</button>
+                          <button class="btn btn-danger mx-3" value="Delete"
+                          *ngIf="user"  (click)="deleteEmployee(user)">DELETE</button>
                       </td>
                     </tr>
                     </tbody>

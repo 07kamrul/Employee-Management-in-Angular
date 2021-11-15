@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Employees } from 'src/app/models/employees';
+import { EmployeesService } from 'src/app/services/employees/employees.service';
 
 @Component({
   selector: 'app-employee-delete-modal',
@@ -7,9 +12,56 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeDeleteModalComponent implements OnInit {
 
-  constructor() { }
+
+  @Input() employee: Employees;
+  employeeForm: FormGroup;
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private activeModal: NgbActiveModal,
+    public datePipe: DatePipe,
+    private employeeServices: EmployeesService
+  ) { }
 
   ngOnInit(): void {
+    this.employeeForm = this.formBuilder.group({
+      employeeId: new FormControl(null),
+      employeeName: new FormControl(null),
+      employeeUsername: new FormControl(null),
+      employeeEmail: new FormControl(null),
+      employeeMobile: new FormControl(null),
+      employeeAddress: new FormControl(null),
+      employeeCompany: new FormControl(null)
+    },{
+      validators:[]
+    });
   }
 
+  get getEmployeeFormControl(){
+    return this.employeeForm.controls;
+  }
+
+  ngAfterViewInit(){
+
+    let address = this.employee.address;
+    let company =  this.employee.company;
+    let addressInfo = address.city+', '+address.street+', '+address.zipcode;
+    let companyInfo = company.bs+', '+company.catchPhrase+', '+company.name;
+
+    this.getEmployeeFormControl['employeeId'].setValue(this.employee.id);
+    this.getEmployeeFormControl['employeeUsername'].setValue(this.employee.username);
+    this.getEmployeeFormControl['employeeEmail'].setValue(this.employee.email);
+    this.getEmployeeFormControl['employeeName'].setValue(this.employee.name);
+    this.getEmployeeFormControl['employeeMobile'].setValue(this.employee.phone);
+    this.getEmployeeFormControl['employeeAddress'].setValue(addressInfo);
+    this.getEmployeeFormControl['employeeCompany'].setValue(companyInfo);
+  }
+
+  closeModal(){
+    this.activeModal.close();
+  }
+
+  printvalue(){
+    console.log("User Id "+ this.getEmployeeFormControl['employeeId'].value);
+  }
 }

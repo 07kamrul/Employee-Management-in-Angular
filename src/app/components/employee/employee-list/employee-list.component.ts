@@ -5,6 +5,8 @@ import { EmployeesService } from '../../../services/employees/employees.service'
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { Employees } from '../../../models/employees';
 import { EmployeeViewModalComponent } from '../employee-view-modal/employee-view-modal.component';
+import { EmployeeEditModalComponent } from '../employee-edit-modal/employee-edit-modal.component';
+import { EmployeeDeleteModalComponent } from '../employee-delete-modal/employee-delete-modal.component';
 
 @Component({
   selector: 'app-employee-list',
@@ -70,22 +72,6 @@ export class EmployeeListComponent implements OnInit {
     });
   }
 
-  viewEmployee(e:any){
-    this.employee = e as Employees;
-    const modalRef = this.modalService.open(EmployeeViewModalComponent, {
-      scrollable: false,
-      windowClass: '',
-      backdrop: 'static'
-    }
-    );
-
-    modalRef.componentInstance.employee = this.employee;
-
-    // modalRef.result.then((result: any) => {
-    //   console.log(result);
-    // }, (reason: any) => {
-    //   });
-  }
 
   getEmployeeById(id: any): void{
     this.employeeService.get(id)
@@ -101,4 +87,55 @@ export class EmployeeListComponent implements OnInit {
     }
 
 
+    viewEmployee(e:any){
+      this.employee = e as Employees;
+      const modalRef = this.modalService.open(EmployeeViewModalComponent, {
+        scrollable: false,
+        windowClass: '',
+        backdrop: 'static'
+      }
+      );
+
+      modalRef.componentInstance.employee = this.employee;
+
+      // modalRef.result.then((result: any) => {
+      //   console.log(result);
+      // }, (reason: any) => {
+      //   });
+    }
+
+
+    editEmployee(e:any){
+      this.employee = e as Employees;
+      const modalRef = this.modalService.open(EmployeeEditModalComponent, {
+        scrollable: false,
+        windowClass: '',
+        backdrop: 'static'
+      }
+      );
+
+      modalRef.componentInstance.employee = this.employee;
+
+      // modalRef.result.then((result: any) => {
+      //   console.log(result);
+      // }, (reason: any) => {
+      //   });
+    }
+
+    deleteEmployee(e:any){
+      this.employee = e as Employees;
+      const modalRef = this.modalService.open(EmployeeDeleteModalComponent, {
+        scrollable: false,
+        windowClass: '',
+        backdrop: 'static'
+      }
+      );
+
+      modalRef.componentInstance.employee = this.employee;
+
+      // modalRef.result.then((result: any) => {
+      //   console.log(result);
+      // }, (reason: any) => {
+      //   });
+    }
 }

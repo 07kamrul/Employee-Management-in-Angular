@@ -2,10 +2,10 @@
   <div class="row mb-4">
     <div class="col-md-12">
       <form action="" data-form-title="Form Name" [formGroup]="employeeForm">
-        <div class="section border custom-card border mt-2">
+        <div class="section custom-card mt-2">
 
           <div class="modal-header">
-            <h5>Employee Information</h5>
+            <h5>View Employee Information</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
               <span aria-hidden="true" >&times;</span>
             </button>
@@ -138,11 +138,15 @@
                 </div>
               </div>
             </div>
-          </div>
+        </div>
       </form>
     </div>
   </div>
 
-  <div class="col-auto"><button type="button" (click)="closeModal()" class="btn btn-primary mb-4 d-flex justify-content-md-center float-right">Close</button></div>
+  <hr>
+
+  <div class="col-auto">
+    <button type="button" (click)="closeModal()" class="btn btn-primary mb-4 d-flex justify-content-md-center float-right">Close</button>
+  </div>
 </div>
 
