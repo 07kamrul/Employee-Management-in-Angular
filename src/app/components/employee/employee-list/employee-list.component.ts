@@ -4,7 +4,7 @@ import { Subject } from 'rxjs';
 import { EmployeesService } from '../../../services/employees/employees.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { Employees } from '../../../models/employees';
-import { ModalComponent } from '../modal/modal.component';
+import { EmployeeViewModalComponent } from '../employee-view-modal/employee-view-modal.component';
 
 @Component({
   selector: 'app-employee-list',
@@ -72,7 +72,7 @@ export class EmployeeListComponent implements OnInit {
 
   viewEmployee(e:any){
     this.employee = e as Employees;
-    const modalRef = this.modalService.open(ModalComponent, {
+    const modalRef = this.modalService.open(EmployeeViewModalComponent, {
       scrollable: false,
       windowClass: '',
       backdrop: 'static'

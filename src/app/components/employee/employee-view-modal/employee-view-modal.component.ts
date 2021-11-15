@@ -4,15 +4,14 @@ import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Employees } from 'src/app/models/employees';
 import { EmployeesService } from 'src/app/services/employees/employees.service';
-import { Company } from '../../../models/company';
 
 @Component({
-  selector: 'app-modal',
-  templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.css']
+  selector: 'app-employee-view-modal',
+  templateUrl: './employee-view-modal.component.html',
+  styleUrls: ['./employee-view-modal.component.css']
 })
+export class EmployeeViewModalComponent implements OnInit {
 
-export class ModalComponent implements OnInit {
 
   @Input() employee: Employees;
   employeeForm: FormGroup;
@@ -48,9 +47,6 @@ export class ModalComponent implements OnInit {
     let company =  this.employee.company;
     let addressInfo = address.city+', '+address.street+', '+address.zipcode;
     let companyInfo = company.bs+', '+company.catchPhrase+', '+company.name;
-    console.log(addressInfo);
-    console.log(companyInfo);
-
 
     this.getEmployeeFormControl['employeeId'].setValue(this.employee.id);
     this.getEmployeeFormControl['employeeUsername'].setValue(this.employee.username);
@@ -68,4 +64,5 @@ export class ModalComponent implements OnInit {
   printvalue(){
     console.log("User Id "+ this.getEmployeeFormControl['employeeId'].value);
   }
+
 }
