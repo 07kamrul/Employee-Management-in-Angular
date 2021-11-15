@@ -1,0 +1,25 @@
+
+legend {
+  width: auto;
+}
+
+.no-pad {
+  padding-right: 2px;
+  padding-left: 2px;
+}
+
+.pad-2 {
+  padding-right: 2px;
+  padding-left: 2px;
+}
+
+.pad-right {
+  padding-right: 2px;
+}
+
+
+::ng-deep .employee-modal .modal-dialog {
+  max-width: 80%;
+  width: 80%;
+}
+

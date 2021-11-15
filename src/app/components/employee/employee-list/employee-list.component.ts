@@ -1,7 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataTableDirective } from 'angular-datatables';
 import { Subject } from 'rxjs';
-import { EmployeesService } from '../../services/employees/employees.service';
+import { EmployeesService } from '../../../services/employees/employees.service';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { Employees } from '../../../models/employees';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-employee-list',
@@ -10,18 +13,24 @@ import { EmployeesService } from '../../services/employees/employees.service';
 })
 export class EmployeeListComponent implements OnInit {
 
+  employee: Employees = new Employees();
+  currentEmployee = null;
 
   allUsers: any = [];
 
   @ViewChild(DataTableDirective, {static: false})
   datatableElement: any = DataTableDirective;
+
   min: any = 0;
   max: any = 0;
 
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
 
-  constructor(private service: EmployeesService) { }
+  constructor(
+    private employeeService: EmployeesService,
+    private modalService: NgbModal,
+    ) { }
 
   ngOnInit(): void {
     this.users();
@@ -42,14 +51,12 @@ export class EmployeeListComponent implements OnInit {
   }
 
   users(): void {
-    this.service
+    this.employeeService
         .users()
         .subscribe((response: any) => {
           this.allUsers = response;
           this.dtTrigger.next();
         });
-
-
   }
 
   ngOnDestroy(): void {
@@ -62,5 +69,36 @@ export class EmployeeListComponent implements OnInit {
       dtInstance.draw();
     });
   }
+
+  viewEmployee(e:any){
+    this.employee = e as Employees;
+    const modalRef = this.modalService.open(ModalComponent, {
+      scrollable: false,
+      windowClass: '',
+      backdrop: 'static'
+    }
+    );
+
+    modalRef.componentInstance.employee = this.employee;
+
+    // modalRef.result.then((result: any) => {
+    //   console.log(result);
+    // }, (reason: any) => {
+    //   });
+  }
+
+  getEmployeeById(id: any): void{
+    this.employeeService.get(id)
+    .subscribe(
+      data => {
+        this.currentEmployee = data;
+        console.log(data);
+
+      },
+      error => {
+        console.log(error);
+      });
+    }
+
 
 }

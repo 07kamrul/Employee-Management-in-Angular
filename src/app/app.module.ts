@@ -6,18 +6,20 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component'; 
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { EmployeeListComponent } from './components/employee-list/employee-list.component'; 
-import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EmployeeListComponent } from './components/employee/employee-list/employee-list.component'; 
+import { AddEmployeeComponent } from './components/employee/add-employee/add-employee.component';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SliderComponent } from './slider/slider.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { DataTablesModule } from "angular-datatables";
-import { AmountListComponent } from './components/amount-list/amount-list.component';
-import { AddAmountComponent } from './components/add-amount/add-amount.component';
+import { AmountListComponent } from './components/amount/amount-list/amount-list.component';
+import { AddAmountComponent } from './components/amount/add-amount/add-amount.component';
 import { UsersComponent } from './components/users/users.component';
+import { DatePipe } from '@angular/common';
+import { ModalComponent } from './components/employee/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { UsersComponent } from './components/users/users.component';
     AmountListComponent,
     AddAmountComponent,
     UsersComponent,
+    ModalComponent,
   ],
 
   imports: [
@@ -44,10 +47,14 @@ import { UsersComponent } from './components/users/users.component';
     FormsModule,
   ],
 
-  providers: [],
 
   schemas: [NO_ERRORS_SCHEMA],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
+  providers: [
+    NgbActiveModal,
+    DatePipe
+  ],
   
 })
 export class AppModule { }

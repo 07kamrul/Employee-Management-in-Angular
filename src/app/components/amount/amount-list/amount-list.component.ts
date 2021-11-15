@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataTableDirective } from 'angular-datatables';
 import { Subject } from 'rxjs';
-import { AmountService } from '../../services/amounts/amount.service';
+import { AmountService } from '../../../services/amounts/amount.service';
 
 @Component({
   selector: 'app-amount-list',
