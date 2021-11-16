@@ -57,6 +57,33 @@ export class EmployeeEditModalComponent implements OnInit {
     this.getEmployeeFormControl['employeeCompany'].setValue(companyInfo);
   }
 
+  update(user: Employees){
+    // call update service
+    //
+
+    this.employeeServices.update(user.id, user);
+
+
+  }
+
+  updateModal(formData: any){
+
+    console.log(JSON.stringify(formData.value));
+    let updateEmployee: Employees = new Employees();
+
+    updateEmployee.id = this.getEmployeeFormControl['employeeId'].value;
+    updateEmployee.username = this.getEmployeeFormControl['employeeUsername'].value;
+    updateEmployee.email = this.getEmployeeFormControl['employeeEmail'].value;
+    updateEmployee.name = this.getEmployeeFormControl['employeeName'].value;
+    updateEmployee.phone = this.getEmployeeFormControl['employeeMobile'].value;
+    updateEmployee.address = this.getEmployeeFormControl['employeeAddress'].value;
+    updateEmployee.company = this.getEmployeeFormControl['employeeCompany'].value;
+
+    this.employeeServices.update(updateEmployee.id, updateEmployee);
+
+    this.activeModal.close();
+  }
+
   closeModal(){
     this.activeModal.close();
   }
